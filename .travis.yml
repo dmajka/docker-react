@@ -1,0 +1,10 @@
+language: generic
+sudo: required # super user level permissions
+services:
+  - docker
+
+before_install:
+  - docker build -t dmajka/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true dmajka/docker-react npm run test -- --coverage
