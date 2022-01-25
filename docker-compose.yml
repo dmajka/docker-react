@@ -3,17 +3,6 @@ services:
   web:
     build:
       context: . # where to pull files from (cwd)
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - '3000:3000'
-    volumes:
-      - /app/node_modules # don't map node_modules to the host
-      - .:/app
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /app/node_modules
-      - .:/app
-    command: ['npm', 'run', 'test']
+      - '80:80'
